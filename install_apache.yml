@@ -1,0 +1,30 @@
+
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: update repository index
+    yum:
+      update_cache: yes
+
+  - name: install apache2-package
+    yum:
+      name: httpd
+
+  - name: install repository
+    yum:
+      name: https://repo.ius.io/ius-release-el7.rpm
+      state: latest
+
+  - name: add php support for apache
+    yum:
+      name: mod_php73
+      state: latest
+
+  - name: start http service
+    service:
+      name: httpd
+      state: started
+
