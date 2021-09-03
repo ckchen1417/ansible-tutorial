@@ -1,0 +1,10 @@
+- hosts: 10.182.0.4
+  become: true
+  tasks:
+
+  - name: unzip package
+    ansible.builtin.unarchive:
+      src: /tmp/ansible.zip
+      dest: /tmp
+      remote_src: yes
+

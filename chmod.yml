@@ -1,0 +1,9 @@
+- hosts: 10.182.0.4
+  become: true
+  tasks:
+
+  - name: chmod 777
+    ansible.builtin.file:
+      path: /tmp/ansible.cfg
+      mode: '0777'
+
