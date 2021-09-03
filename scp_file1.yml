@@ -1,17 +1,12 @@
 - hosts: 10.182.0.4
   become: true
-  vars_prompt:
-
-    - name: filename
-      prompt: What is the file name?
-      private: no
-
   tasks:
 
   - name: transfer package to tmp folder
-    copy: 
-      src: "~/.ssh/ansible-tutorial/{{ filename }}"
+    copy:
+      src: '~/.ssh/ansible-tutorial/ansible.cfg'
       dest: '/tmp'
       owner: root
       group: root
       mode: '777'
+
